@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>TIC TAC TOE</h3>
+<p id="tictac"/>
+<script>
+    let b = document.getElementById("tictac");
+    let data = "";
+    let board = [];
+    for (let i = 0; i < 10; i++) {
+        board[i] = new Array(".", ".", ".", ".", ".", ".", ".", ".", ".", ".");
+    }
+    for (let i = 0; i < 10; i++) {
+        data = data + "<br/>";
+        for (let j = 0; j < 10; j++) {
+            data = data + board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";
+        }
+    }
+    data = data + "<br/><br/><input type='button' value='CHANGE VALUE X' onclick='changeValueX()'><input type='button' value='CHANGE VALUE O' onclick='changeValueO)'>";
+    b.innerHTML = data;
+
+
+    function changeValueX() {
+        let toadox = prompt("Mời nhập vào toạ độ theo phương x : ");
+        let toadoy = prompt("Mời nhập vào toạ độ theo phương y : ");
+        data = "";
+        board[toadox][toadoy] = "x";
+        for (let i = 0; i < 10; i++) {
+            data = data + "<br/>";
+            for (let j = 0; j < 10; j++) {
+                data = data + board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";
+            }
+        }
+        data = data + "<br/><br/><input type='button' value='CHANGE VALUE X' onclick='changeValueX()'><input type='button' value='CHANGE VALUE O' onclick='changeValueO()'>";
+        b.innerHTML = data;
+
+        for (let a = 0; a < 10; a++) {
+            for (let b = 0; b < 10; b++) {
+                if (board[a][b] === "x" && board[a + 1][b + 1] === "x" && board[a + 2][b + 2] === "x") {
+                    alert(board[a][b] + "win")
+                }
+                else if (board[a][b] === "x" && board[a + 1][b] === "x" && board[a + 2][b] === "x") {
+                    alert(board[a][b] + "win")
+                }
+                else if (board[a][b] === "x" && board[a][b + 2] === "x" && board[a + 2][b + 2] === "x") {
+                    alert(board[a][b] + "win")
+                }
+            }
+        }
+
+    }
+
+    function changeValueO() {
+        let toadox = prompt("Mời nhập vào toạ độ theo phương x : ");
+        let toadoy = prompt("Mời nhập vào toạ độ theo phương y : ");
+        data = "";
+        board[toadox][toadoy] = "o";
+        for (let i = 0; i < 10; i++) {
+            data = data + "<br/>";
+            for (let j = 0; j < 10; j++) {
+                data = data + board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";
+            }
+        }
+        data = data + "<br/><br/><input type='button' value='CHANGE VALUE X' onclick='changeValueX()'><input type='button' value='CHANGE VALUE O' onclick='changeValueO()'>";
+        b.innerHTML = data;
+    }
+
+
+    for (let a = 0; a < 10; a++) {
+        for (let b = 0; b < 10; b++) {
+            if (board[a][b] === "x" && board[a + 1][b + 1] === "x" && board[a + 2][b + 2] === "x") {
+                alert(board[a][b] + "win")
+            }
+            if (board[a][b] === "x" && board[a + 1][b] === "x" && board[a + 2][b] === "x") {
+                alert(board[a][b] + "win")
+            }
+            if (board[a][b] === "x" && board[a][b+2] === "x" && board[a + 2][b+2] === "x"
+        )
+            {
+                alert(board[a][b] + "win")
+            }
+        }
+    }
+
+</script>
+</body>
+</html>
